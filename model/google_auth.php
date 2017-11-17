@@ -24,6 +24,8 @@ class GoogleAuth{
         if(isset($_GET['code'])){
             $this->client->authenticate($_GET['code']);
             $this->setToken($this->client->getAccessToken());
+            $payload = $this->getPayLoad();
+            echo "<pre>",$payload,"</pre>";
             return true;
         }
         return false;
@@ -32,5 +34,10 @@ class GoogleAuth{
     public function setToken($token){
         $_SESSION['access_token'] = $token;
         $this->client->setAccessToken($token);
+    }
+
+    public function getPayLoad(){
+        $payload = $this->client->verifyIdToken()->getAttributes();
+        return $payload;
     }
 }

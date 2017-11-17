@@ -10,7 +10,7 @@ $auth = new GoogleAuth($google_client);
 
 if($auth->checkRedirectCode()){
   //die($_GET['code']);
-  header("Location: index.php");
+  //header("Location: index.php");
 }
 
 
