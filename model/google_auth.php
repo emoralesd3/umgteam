@@ -25,7 +25,7 @@ class GoogleAuth{
             $this->client->authenticate($_GET['code']);
             $this->setToken($this->client->getAccessToken());
             $payload = $this->getPayLoad();
-            echo "<pre>",$payload,"</pre>";
+            echo "<pre>",print_r($payload),"</pre>";
             return true;
         }
         return false;

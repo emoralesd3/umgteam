@@ -6,7 +6,7 @@ require_once('vendor/autoload.php');
 require_once('model/google_auth.php');
 
 $google_client = new Google_Client();
-$auth = new GoogleAuth($google_client);
+$auth = new Google_Oauth2Service($google_client);
 
 if($auth->checkRedirectCode()){
   //die($_GET['code']);
