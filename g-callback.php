@@ -17,12 +17,12 @@
     $userData = $oAuth->userinfo_v2_me->get();
 
     $datos = array(
-        "oauth_uid" => $user['id'],
-        "nombre" => $user['name']['givenName'],
-        "apellido" => $user['name']['familyName'],
-        "email" => $user['verified'],
-        "avatar" => $user['image']['url'],
-        "sexo" => $user['gender']
+        "oauth_uid" => $userData['id'],
+        "nombre" => $userData['name']['givenName'],
+        "apellido" => $userData['name']['familyName'],
+        "email" => $userData['verified'],
+        "avatar" => $userData['image']['url'],
+        "sexo" => $userData['gender']
     );
 
     $idUser = $usuarioAuth->verificarIdGoogle($datos['oauth_uid']);
