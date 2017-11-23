@@ -4,9 +4,9 @@ require_once('lib/config.php');
 require_once('model/usuario.php');
 require_once('model/config_google.php');
 
-if(isset($_SESSION['access_token'])){
-  header('Location: index.php');
-  exit();
+if(isset($_SESSION['usuario']))
+{
+  header("Location: index.php");
 }
 
 $loginURL = $google_client->createAuthUrl();

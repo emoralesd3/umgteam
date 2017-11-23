@@ -5,10 +5,11 @@ require_once('lib/socialnetwork-lib.php');
 require_once('model/publicaciones.php');
 require_once('model/usuario.php');
 
-//ini_set('error_reporting',0);
+ini_set('error_reporting',0);
 
-if(!isset($_SESSION['access_token'])){
-  header("Location: login.php");
+if(!isset($_SESSION['usuario']))
+{
+  header("Location: index.php");
 }
 ?>
 <!DOCTYPE html>

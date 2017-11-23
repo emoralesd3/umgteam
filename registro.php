@@ -47,15 +47,15 @@ if(isset($_SESSION['usuario']))
 
     <form action="" method="post">
       <div class="form-group has-feedback">
-        <input type="text" name="nombre" class="form-control" placeholder="Nombre completo" value="<?php echo $_POST['nombre']; ?>" required>
+        <input type="text" name="nombre" class="form-control" placeholder="Nombre completo" value="<?php if(isset($_POST['nombre'])){echo $_POST['nombre']; } ?>" required>
         <span class="glyphicon glyphicon-star form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">
-        <input type="email" name="email" class="form-control" placeholder="Email" value="<?php echo $_POST['email']; ?>" required>  
+        <input type="email" name="email" class="form-control" placeholder="Email" value="<?php if(isset($_POST['email'])){echo $_POST['email']; } ?>" required>  
         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">
-        <input type="text" name="usuario" class="form-control" placeholder="Usuario" value="<?php echo $_POST['usuario']; ?>" required>
+        <input type="text" name="usuario" class="form-control" placeholder="Usuario" value="<?php if(isset($_POST['usuario'])){echo $_POST['usuario']; } ?>" required>
         <span class="glyphicon glyphicon-user form-control-feedback"></span>
       </div>
       <div class="checkbox">
