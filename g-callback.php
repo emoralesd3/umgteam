@@ -14,7 +14,7 @@
         exit();
     }
 
-    $oAuth = new Google_Service_0auth2($google_client);
+    $oAuth = new Google_Service_Oauth2($google_client);
     $userData = $oAuth->userinfo_v2_me->get();
     var_dump($userData);
     echo '\n------------------------\n';
