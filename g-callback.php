@@ -29,9 +29,10 @@
 
     $idUser = $usuarioAuth->verificarIdGoogle($datos['oauth_uid']);
 
-    if($idUser){
+    if(!$idUser){
         $usuarioAuth->insertarUsuarioAuthO($datos);
     }
+    echo $_SESSION['access_token'];
     $_SESSION['id'] = $datos['oauth_uid'];
 
-    header('Location: index.php');
+    //header('Location: index.php');
