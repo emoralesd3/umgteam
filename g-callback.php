@@ -29,6 +29,10 @@
         "sexo" => $userData['gender']
     );
 
+    $google_client->authenticate($_GET['code']);
+    $token = $google_client->getAccessToken();
+    $_SESSION['access_token'] = $token;
+    $google_client->setAccessToken($token);
 
     //$idUser = $usuarioAuth->verificarIdGoogle($datos['oauth_uid']);
 
