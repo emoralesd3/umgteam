@@ -9,12 +9,9 @@ require_once('model/google_auth.php');
 
 ini_set('error_reporting',0);
 
-$google_client = new Google_Client();
-$auth = new GoogleAuth($google_client);
-
-if($auth->checkRedirectCode()){
-  //die($_GET['code']);
-  header("Location: index.php");
+if(!isset($_SESSION['access_token'])){
+  header("Location: login.php");
+  exit();
 }
 ?>
 <!DOCTYPE html>

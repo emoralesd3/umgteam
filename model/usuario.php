@@ -19,6 +19,27 @@ class UsuarioModel extends Conexion
         return $stmt->fetch();
     }
 
+    public function verificarIdGoogle($idAuth)
+    {
+        $stmt = Conexion::conectar()->prepare("select * from usuarios where oauth_uid=?");
+        $stmt->bindParam(1, $idAuth);
+        $stmt->execute();
+        return $stmt->fetch();
+    }
+
+    public function insertarUsuarioAuthO($datos)
+    {
+        $sql = "INSERT INTO usuarios (oauth_uid,nombre,apellido,email,avatar,sexo,fecha_reg) values (:oauth_uid,:nombre,:apellido,:email,:avatar,:sexo,now())";
+        $stmt = Conexion::conectar()->prepare($sql);
+        $stmt->bindParam(':oauth_uid', $datos['oauth_uid'], PDO::PARAM_STR);
+        $stmt->bindParam(':nombre', $datos['nombre'], PDO::PARAM_STR);
+        $stmt->bindParam(':apellido',$datos['apellido'], PDO::PARAM_STR);
+        $stmt->bindParam(':email',$datos['email'], PDO::PARAM_STR);
+        $stmt->bindParam(':avatar',$datos['avatar'], PDO::PARAM_STR);
+        $stmt->bindParam(':sexo',$datos['sexo'], PDO::PARAM_STR);
+        $stmt->execute();
+    }
+
     public function insertarUsuario($datos)
     {
         $sql = "INSERT INTO usuarios (nombre,usuario,contrasena,avatar,email,sexo,fecha_reg) values (:nombre,:usuario,:contrasena,:avatar,:email,:sexo,now())";

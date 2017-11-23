@@ -4,6 +4,11 @@ require_once('lib/config.php');
 require_once('model/usuario.php');
 require_once('model/config_google.php');
 
+if(isset($_SESSION['access_token'])){
+  header('Location: index.php');
+  exit();
+}
+
 $loginURL = $google_client->createAuthUrl();
 
 ?>
@@ -56,8 +61,14 @@ $loginURL = $google_client->createAuthUrl();
         <div class="col-xs-12">
           <button type="submit" name="login" class="btn btn-primary btn-block btn-flat">Iniciar Sesión</button>
         </div>
+        <br>
+        <br>
         <div class="col-xs-12">
-          <input type="button" onclick="window.location='<?php echo $loginURL ?>';" value="Iniciar Sesión con tu cuenta UMG" class="btn btn-danger btn-block btn-flat">
+          <div class="card">
+            <div class="card-body">
+              <input type="button" onclick="window.location='<?php echo $loginURL ?>';" value="Iniciar Sesión con tu cuenta UMG" class="btn btn-danger btn-block btn-flat">
+            </div>
+          </div>
         </div>
         <!-- /.col -->
       </div>
