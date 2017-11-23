@@ -16,7 +16,7 @@
     $oAuth = new Google_Service_Oauth2($google_client);
     $userData = $oAuth->userinfo_v2_me->get();
 
-    $datos = array(
+    /*$datos = array(
         "oauth_uid" => $userData['id'],
         "nombre" => $userData['name']['givenName'],
         "apellido" => $userData['name']['familyName'],
@@ -29,8 +29,8 @@
     if($idUser['oauth_uid'] != $datos['oauth_uid']){
         $usuarioAuth->insertarUsuarioAuthO($datos);
     }
-
-    $_SESSION['id'] = $datos['oauth_uid'];
+    */
+    //$_SESSION['id'] = $datos['oauth_uid'];
 
     header('Location: index.php');
     exit();
