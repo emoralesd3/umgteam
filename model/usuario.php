@@ -50,8 +50,6 @@ class UsuarioModel extends Conexion
         $stmt->bindParam(':avatar',$datos['avatar'], PDO::PARAM_STR);
         $stmt->bindParam(':email',$datos['email'], PDO::PARAM_STR);
         $stmt->bindParam(':sexo',$datos['sexo'], PDO::PARAM_STR);
-        var_dump($stmt->execute());
-        var_dump($stmt);
         if($stmt->execute()){
             return true;
         }else{

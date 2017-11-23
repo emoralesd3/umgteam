@@ -142,9 +142,7 @@ if(isset($_SESSION['usuario']))
           </div>
 
           <?php } else {
-            var_dump($datos);
-            echo 'insertando los datos';
-            $insertar = $usuarioModelo->insertarUsuario($datos);
+            $insertar = UsuarioModel::insertarUsuario($datos);
             var_dump($insertar);
 
             if($insertar) { ?>
