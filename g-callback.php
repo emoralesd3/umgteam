@@ -30,9 +30,14 @@
     );
 
 
-    $idUser = $usuarioAuth->verificarIdGoogle($datos['oauth_uid']);
+    //$idUser = $usuarioAuth->verificarIdGoogle($datos['oauth_uid']);
 
-    
+    //if(!$idUser){
+      //  $usuarioAuth->insertarUsuarioAuthO($datos);
+    //}
+    //var_dump($_SESSION['access_token']);
     $_SESSION['id'] = $datos['oauth_uid'];
 
     header('Location: index.php');
+    exit();
+?>
