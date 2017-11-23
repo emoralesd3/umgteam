@@ -42,7 +42,7 @@ class UsuarioModel extends Conexion
 
     public function insertarUsuario($datos)
     {
-        $sql = "INSERT INTO usuarios (nombre,usuario,contrasena,avatar,email,sexo,fecha_reg) values (:nombre,:usuario,:contrasena,:avatar,:email,:sexo,now())";
+        $sql = "INSERT INTO usuarios(nombre,usuario,contrasena,avatar,email,sexo,fecha_reg) values(:nombre,:usuario,:contrasena,:avatar,:email,:sexo,now())";
         $stmt = Conexion::conectar()->prepare($sql);
         $stmt->bindParam(':nombre', $datos['nombre'], PDO::PARAM_STR);
         $stmt->bindParam(':usuario',$datos['usuario'], PDO::PARAM_STR);
@@ -50,7 +50,8 @@ class UsuarioModel extends Conexion
         $stmt->bindParam(':avatar',$datos['avatar'], PDO::PARAM_STR);
         $stmt->bindParam(':email',$datos['email'], PDO::PARAM_STR);
         $stmt->bindParam(':sexo',$datos['sexo'], PDO::PARAM_STR);
-        
+        var_dump($stmt->execute());
+        var_dump($stmt);
         if($stmt->execute()){
             return true;
         }else{
