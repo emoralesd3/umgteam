@@ -8,6 +8,7 @@
     }
     else if(isset($_GET['code'])){
         $token = $google_client->fetchAccessTokenWithAuthCode($_GET['code']);
+        var_dump($token);
         $_SESSION['access_token'] = $token;
     }else{
         header('Location: login.php');
@@ -32,7 +33,7 @@
     if(!$idUser){
         $usuarioAuth->insertarUsuarioAuthO($datos);
     }
-    echo $_SESSION['access_token'];
+    var_dump($_SESSION['access_token']);
     $_SESSION['id'] = $datos['oauth_uid'];
 
     //header('Location: index.php');
