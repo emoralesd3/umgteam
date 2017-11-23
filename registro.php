@@ -143,9 +143,9 @@ if(isset($_SESSION['usuario']))
 
           <?php } else {
             $insertar = UsuarioModel::insertarUsuario($datos);
-            var_dump($insertar);
+            //var_dump($insertar);
 
-            if($insertar) { ?>
+            //if($insertar) { ?>
 
             <br>
             <div class="alert alert-success alert-dismissible">
@@ -157,7 +157,7 @@ if(isset($_SESSION['usuario']))
 
             header("Refresh: 2; url = login.php");
 
-            }
+            //}
 
           }
 
