@@ -8,4 +8,5 @@
     $oAuth = new Google_Service_Oauth2($google_client);
     $userData = $oAuth->userinfo_v2_me->get();
 
-    echo '<pre>'.$userData.'</pre>';
+    echo "<pre>";
+    var_dump($userData);
