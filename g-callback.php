@@ -3,18 +3,12 @@
     require_once('lib/config.php');
     require_once('model/usuario.php');
     $usuarioAuth = new UsuarioModel;
-    if(isset($_SESSION['access_token'])){
-        $google_client->setAccessToken($_SESSION['access_token']);
-    }
-    else if(isset($_GET['code'])){
+    if(isset($_GET['code'])){
         //$google_client->authenticate($_GET['code']);
         $token = $google_client->fetchAccessTokenWithAuthCode($_GET['code']);
         //$token = $google_client->getAccessToken();
         $_SESSION['access_token'] = $token;
         //$google_client->setAccessToken($token);
-    }else{
-        header('Location: login.php');
-        exit();
     }
 
     $oAuth = new Google_Service_Oauth2($google_client);
