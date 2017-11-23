@@ -7,9 +7,11 @@
         $google_client->setAccessToken($_SESSION['access_token']);
     }
     else if(isset($_GET['code'])){
-        $token = $google_client->fetchAccessTokenWithAuthCode($_GET['code']);
-        var_dump($token);
+        $google_client->authenticate($_GET['code']);
+        //$token = $google_client->fetchAccessTokenWithAuthCode($_GET['code']);
+        $token = $google_client->getAccessToken();
         $_SESSION['access_token'] = $token;
+        $google_client->setAccessToken($token);
     }else{
         header('Location: login.php');
         exit();
