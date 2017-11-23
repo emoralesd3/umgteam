@@ -26,12 +26,12 @@
         "sexo" => $userData['gender']
     );
 
-    $idUser = $usuarioAuth->verificarIdGoogle($datos['oauth_uid']);
+    var_dump($datos);
+
+    /*$idUser = $usuarioAuth->verificarIdGoogle($datos['oauth_uid']);
     if($idUser['oauth_uid'] != $datos['oauth_uid']){
         $usuarioAuth->insertarUsuarioAuthO($datos);
     }
     $_SESSION['id'] = $datos['oauth_uid'];
-    var_dump($userData);
 
-    header('Location: index.php');
-    exit();
+    header('Location: index.php');*/
