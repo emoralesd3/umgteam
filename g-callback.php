@@ -1,5 +1,6 @@
 <?php
     require_once('model/config_google.php');
+    require_once('lib/config.php');
     require_once('model/usuario.php');
     $usuarioAuth = new UsuarioModel;
     if(isset($_SESSION['access_token'])){
