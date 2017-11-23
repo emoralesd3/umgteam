@@ -3,7 +3,7 @@ session_start();
 require_once('lib/config.php');
 require_once('model/usuario.php');
 
-ini_set('error_reporting',0);
+//ini_set('error_reporting',0);
 
 if(isset($_SESSION['usuario']))
 {
@@ -107,6 +107,7 @@ if(isset($_SESSION['usuario']))
         'usuario' => htmlspecialchars($_POST['usuario']),
         'contrasena' => htmlspecialchars(md5($_POST['contrasena']))
       );
+      var_dump($datos);
       $repcontrasena = htmlspecialchars(md5($_POST['repcontrasena']));
 
       $comprobarusuario = $usuarioModelo->verificarUsuario($datos['usuario']);
