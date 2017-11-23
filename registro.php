@@ -107,7 +107,7 @@ if(isset($_SESSION['usuario']))
         'usuario' => htmlspecialchars($_POST['usuario']),
         'contrasena' => htmlspecialchars(md5($_POST['contrasena']))
       );
-      var_dump($datos);
+
       $repcontrasena = htmlspecialchars(md5($_POST['repcontrasena']));
 
       $comprobarusuario = $usuarioModelo->verificarUsuario($datos['usuario']);
@@ -142,9 +142,10 @@ if(isset($_SESSION['usuario']))
           </div>
 
           <?php } else {
-
-
+            var_dump($datos);
+            echo 'insertando los datos';
             $insertar = $usuarioModelo->insertarUsuario($datos);
+            var_dump($insertar);
 
             if($insertar) { ?>
 
