@@ -2,17 +2,9 @@
 session_start();
 require_once('lib/config.php');
 require_once('model/usuario.php');
-require_once('vendor/autoload.php');
-require_once('model/google_auth.php');
+require_once('model/config_google.php');
 
-$google_client = new Google_Client();
-$auth = new Google_Oauth2Service($google_client);
-
-if($auth->checkRedirectCode()){
-  //die($_GET['code']);
-  //header("Location: index.php");
-}
-
+$loginURL = $google_client->createAuthUrl();
 
 ?>
 <!DOCTYPE html>
@@ -65,7 +57,7 @@ if($auth->checkRedirectCode()){
           <button type="submit" name="login" class="btn btn-primary btn-block btn-flat">Iniciar Sesión</button>
         </div>
         <div class="col-xs-12">
-          <a href="<?php echo $auth->getAuthUrl(); ?>" class="btn btn-danger btn-block btn-flat">Iniciar Sesión con tu cuenta UMG</a>
+          <input type="button" onclick="window.location='<?php echo $loginURL ?>';" value="Iniciar Sesión con tu cuenta UMG" class="btn btn-danger btn-block btn-flat">
         </div>
         <!-- /.col -->
       </div>

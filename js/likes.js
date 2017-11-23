@@ -13,6 +13,8 @@ $(document).ready(function(){
 				var text = data['text'];
 
 				$("#likes_"+id).text(likes);
+				console.log(likes);
+				console.log(text);
 				$("#"+id).html(text);
 			}
 		});

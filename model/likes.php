@@ -1,6 +1,6 @@
 <?php
 class LikesModel extends Conexion
-{
+{    
     public function comprobarLike($post,$usuario)
     {
         $stmt = Conexion::conectar()->prepare("SELECT * FROM likes WHERE post = '".$post."' AND usuario = ".$usuario."");
