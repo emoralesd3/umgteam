@@ -4,14 +4,11 @@ require_once('lib/config.php');
 require_once('lib/socialnetwork-lib.php');
 require_once('model/publicaciones.php');
 require_once('model/usuario.php');
-require_once('vendor/autoload.php');
-require_once('model/google_auth.php');
 
 ini_set('error_reporting',0);
 
 if(!isset($_SESSION['access_token'])){
   header("Location: login.php");
-  exit();
 }
 ?>
 <!DOCTYPE html>

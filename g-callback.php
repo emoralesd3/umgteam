@@ -39,4 +39,3 @@
     $_SESSION['id'] = $datos['oauth_uid'];
 
     header('Location: index.php');
-    exit();
