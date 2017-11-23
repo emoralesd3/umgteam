@@ -17,8 +17,8 @@
         exit();
     }
 
-    $oAuth = new Google_Service_Plus($google_client);
-    $userData = $oAuth->people->get('me');
+    $oAuth = new Google_Service_Oauth2($google_client);
+    $userData = $oAuth->userinfo_v2_me->get();
     
     $datos = array(
         "oauth_uid" => $userData['id'],
@@ -29,10 +29,7 @@
         "sexo" => $userData['gender']
     );
 
-    $google_client->authenticate($_GET['code']);
-    $token = $google_client->getAccessToken();
     $_SESSION['access_token'] = $token;
-    $google_client->setAccessToken($token);
 
     //$idUser = $usuarioAuth->verificarIdGoogle($datos['oauth_uid']);
 
@@ -40,7 +37,7 @@
       //  $usuarioAuth->insertarUsuarioAuthO($datos);
     //}
     //var_dump($_SESSION['access_token']);
-    $_SESSION['id'] = $datos['oauth_uid'];
+    //$_SESSION['id'] = $datos['oauth_uid'];
 
     header('Location: index.php');
     exit();
