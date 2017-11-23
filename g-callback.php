@@ -4,11 +4,14 @@
     $usuarioAuth = new UsuarioModel;
     if(isset($_SESSION['access_token'])){
         $google_client->setAccessToken($_SESSION['access_token']);
+        echo 'hola 1';
     }
     else if(isset($_GET['code'])){
         $token = $google_client->fetchAccessTokenWithAuthCode($_GET['code']);
         $_SESSION['access_token'] = $token;
+        echo 'hola 2';
     }else{
+        echo 'hola 3';
         header('Location: login.php');
         exit();
     }
