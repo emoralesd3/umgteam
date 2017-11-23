@@ -10,7 +10,7 @@
         $google_client->authenticate($_GET['code']);
         //$token = $google_client->fetchAccessTokenWithAuthCode($_GET['code']);
         $token = $google_client->getAccessToken();
-        $_SESSION['access_token'] = $token['access_token'];
+        $_SESSION['access_token'] = $token;
         $google_client->setAccessToken($token);
     }else{
         header('Location: login.php');
@@ -32,10 +32,7 @@
 
     $idUser = $usuarioAuth->verificarIdGoogle($datos['oauth_uid']);
 
-    if($idUser){
-        $usuarioAuth->insertarUsuarioAuthO($datos);
-    }
-    //var_dump($_SESSION['access_token']);
+    
     $_SESSION['id'] = $datos['oauth_uid'];
 
     header('Location: index.php');
