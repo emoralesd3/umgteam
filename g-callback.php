@@ -17,8 +17,8 @@
         exit();
     }
 
-    $oAuth = new Google_Service_Oauth2($google_client);
-    $userData = $oAuth->userinfo_v2_me->get();
+    $oAuth = new Google_Service_Plus($google_client);
+    $userData = $oAuth->people->get('me');
     
     $datos = array(
         "oauth_uid" => $userData['id'],
