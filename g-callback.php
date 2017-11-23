@@ -31,6 +31,6 @@
     }
     */
     //$_SESSION['id'] = $datos['oauth_uid'];
+    var_dump($userData);
 
-    header('Location: index.php');
-    exit();
+    //header('Location: index.php');
